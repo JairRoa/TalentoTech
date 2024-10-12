@@ -1,0 +1,140 @@
+
+* {
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: blue;
+    margin: 0;
+    padding: 0; 
+    width: 100vw; 
+    overflow-x: hidden; 
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: rgb(0, 0, 39);
+    display: flex;
+    color: #fff;
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    height: 100px; 
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+header img {
+    height: 100px;
+    max-width: 120px;
+}
+
+p {
+    margin: 0;
+    padding: 20px 0px;
+}
+
+main {
+    background-color: rgb(40, 40, 100);
+    height: 500px;
+    margin: 0;
+}
+
+.suma {
+    display: flex;
+}
+
+form {
+    
+    background-color: #fff;
+    width: 50vw;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: center;
+}
+
+.num, .resultado {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.resultado input {
+    width: 150px;
+}
+
+.calcular {
+    margin: 10px;
+    width: 200px;
+    font-size: 24px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgb(40, 40, 100);
+    background-color: blue;
+    color: #fff;
+    border: solid 1px;
+    padding: 3px;
+}
+
+.calcular:hover {
+    cursor: pointer;
+    background-color: rgb(40, 40, 100);
+}
+
+input {
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: blue;
+    color: #fff;
+    box-shadow: 3px 3px 5px rgb(40, 40, 100);
+}
+
+footer {
+    background-color: rgb(0, 0, 0);
+    height: 150px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px; 
+    color: #fff;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    width: 250px;
+}
+
+.copyright {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 300px;
+}
+
+.perfil img {
+    height: 105px;
+    width: 105px;
+    border-radius: 50%;
+    border: solid rgb(0, 38, 255) 4px;
+}
+
+.copyright img {
+    height: 105px;
+}
+
+footer p {
+    margin: 0;
+    text-align: center;
+}

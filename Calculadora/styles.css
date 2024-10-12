@@ -1,0 +1,32 @@
+body {
+    background-color: #a4ffb8;
+    display: grid;
+    place-items: center;
+}
+
+.calculadora {
+    background-color: #000000;
+    color: #fff;
+    width: 350px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 40vh;
+}
+
+.pantalla {
+    grid-column: 1 / 5; 
+    text-align: end;
+    background-color: black;
+    color: rgb(79, 214, 0);
+    font-weight: bold; 
+    margin: 20px;
+    padding: auto;font-family: 'Courier New', Courier, monospace;
+}
+
+.btn-large {
+    grid-column: span 2; 
+}
+
+.btn {
+    font-weight: bold; 
+}
