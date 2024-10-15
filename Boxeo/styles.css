@@ -1,0 +1,39 @@
+*{
+    font-family: "Oswald", sans-serif;
+}
+
+body{
+    background-color: gray;
+    margin: 0px;
+}
+
+.top-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo {
+    background-color: rgb(32, 32, 32);
+}
+
+.main-menu{
+    background-color: rgb(81, 81, 126);
+}
+
+.nav {
+    background-color: black;
+    color:#fff;
+    display: flex;
+    gap: 20px;
+    text-transform: uppercase;
+}
+
+.nav li {
+    list-style-type: none;
+}
+
+.nav a {
+    text-decoration: none;
+}
