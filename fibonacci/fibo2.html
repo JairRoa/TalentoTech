@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+    <title>Fibonacci dos entradas</title>
+</head>
+<body>
+    <main>
+        <div class="fibo">
+            <form id="fiboForm" onsubmit="return false">
+                <h2>Mostrar la serie Fibonacci desde dos números iniciales</h2>
+                <label for="number">Ingrese número de elementos a calcular</label>
+                <input type="number" name="number" id="number" placeholder="Número de elementos" required>
+                
+                <label for="primerNumero">Primer número de la secuencia</label>
+                <input type="number" name="primerNumero" id="primerNumero" placeholder="Primer número" required>
+                
+                <label for="segundoNumero">Segundo número de la secuencia</label>
+                <input type="number" name="segundoNumero" id="segundoNumero" placeholder="Segundo número" required>
+                
+                <button type="button" id="btn">Calcular</button>
+            </form>
+            <div id="resultado">
+                <h2>Resultados obtenidos</h2>
+            </div>
+        </div>
+    </main>
+
+    <script src="fibo2.js"></script>
+</body>
+</html>
