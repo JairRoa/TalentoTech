@@ -1,3 +1,8 @@
+:root {
+    --titulos: yellow;
+}
+
+
 *{
     font-family: "Oswald", sans-serif;
 }
@@ -5,25 +10,40 @@
 body{
     background-color: gray;
     margin: 0px;
+    box-sizing: border-box;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+
 .top-bar {
+    background-color: black;
     display: flex;
     flex-direction: row;
+    width: 70%;
+    height: 120px;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-around;
+    margin: auto;
 }
 
 .logo {
     background-color: rgb(32, 32, 32);
+    margin: 15px;
 }
 
 .main-menu{
-    background-color: rgb(81, 81, 126);
+    margin: 0px 0px 0px 5 0px;
+    width: 100%;
 }
 
 .nav {
-    background-color: black;
+    
     color:#fff;
     display: flex;
     gap: 20px;
@@ -36,4 +56,74 @@ body{
 
 .nav a {
     text-decoration: none;
+    color: #fff;
 }
+
+.nav a:hover {
+    color: var(--titulos);
+}
+
+.hero{
+    background-color: black;
+    color: #fff;
+    background-image: url(/img/slide_01.jpg);
+    height: 400px;
+    width: 100%;
+    margin: auto;
+}
+
+.herocontent {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+}
+
+.herotitle {
+    font-size: 3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    width: 60%;
+}
+
+.herotitle span {
+    color: var(--titulos); 
+}
+
+
+.herotext {
+    width: 60%;
+    font-family: "Poppins", sans-serif;
+}
+
+.cta{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70%;
+    gap: 20px;
+}
+
+.cta a{
+    
+    color: #fff;
+    box-sizing: content-box;
+    height: 30px;
+    width: 100px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+}
+
+#boton1 {
+    background-color: var(--titulos);
+}
+
+#boton2 {
+    border: solid white 2px;
+    color: #fff;
+}
+
