@@ -1,5 +1,5 @@
 :root {
-    --titulos: yellow;
+    --titulos: #dbff00;
 }
 
 
@@ -18,11 +18,11 @@ header {
     flex-direction: column;
     justify-content: flex-end;
     width: 100%;
+    align-items: center;
 }
 
 
 .top-bar {
-    background-color: black;
     display: flex;
     flex-direction: row;
     width: 70%;
@@ -30,6 +30,9 @@ header {
     align-items: center;
     justify-content: space-around;
     margin: auto;
+    position: absolute;
+    top: 0px;
+    z-index: 1;
 }
 
 .logo {
@@ -46,7 +49,7 @@ header {
     
     color:#fff;
     display: flex;
-    gap: 20px;
+    gap: 30px;
     text-transform: uppercase;
 }
 
@@ -66,8 +69,10 @@ header {
 .hero{
     background-color: black;
     color: #fff;
-    background-image: url(/img/slide_01.jpg);
-    height: 400px;
+    background-image: url(/Boxeo/img/slide_01.jpg);
+    background-size: cover;
+    background-position: top right;
+    height: 100vh;
     width: 100%;
     margin: auto;
 }
@@ -76,7 +81,7 @@ header {
     display: flex;
     flex-direction: column;
     width: 70%;
-    margin: auto;
+    margin:  200px auto;
 }
 
 .herotitle {
@@ -84,6 +89,7 @@ header {
     text-transform: uppercase;
     font-weight: 700;
     width: 60%;
+    line-height: 1.1em;
 }
 
 .herotitle span {
@@ -92,8 +98,12 @@ header {
 
 
 .herotext {
+    text-align: justify;
     width: 60%;
     font-family: "Poppins", sans-serif;
+    font-stretch: condensed;
+    line-height: 1.5em;
+    font-size: 1em;
 }
 
 .cta{
@@ -110,16 +120,23 @@ header {
     color: #fff;
     box-sizing: content-box;
     height: 30px;
-    width: 100px;
+    width: 150px;
     padding: 10px;
     text-transform: uppercase;
     font-weight: 700;
     text-align: center;
     text-decoration: none;
+    margin-top: 20px;
 }
 
 #boton1 {
     background-color: var(--titulos);
+    color: black;
+}
+
+#boton1:hover {
+    background-color: #fff;
+    color: black;
 }
 
 #boton2 {
@@ -127,3 +144,8 @@ header {
     color: #fff;
 }
 
+#boton2:hover {
+    border: solid white 2px;
+    background-color: #fff;
+    color: #000000;
+}
