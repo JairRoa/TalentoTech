@@ -2,8 +2,16 @@ const pokemonList = document.getElementById("pokemon-list");
 const pokemonDetail = document.getElementById("pokemon-detail");
 const pokemonInfo = document.querySelector(".pokemon-info");
 const backButton = document.getElementById("back-button");
-const searchInput = document.getElementById("search-input")
-const searchButton = document.getElementById("search-button")
+
+const searchInput = document.getElementById("search-input");
+const searchButton = document.getElementById("search-button");
+
+const prevButton = document.getElementById("prev-button");
+const nextButton = document.getElementById("next-button");
+
+let currentPage = 1;
+const itemsPerPage = 49;
+const totalPokemon = 1010;
 
 async function fetchPokemonData(pokemonId) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
@@ -20,11 +28,10 @@ function displayPokemon(pokemon) {
         <p>ID: ${pokemon.id}</p>
     `;
 
-
     pokemonCard.addEventListener("click", () => {
         showPokemonDetail(pokemon);  
     });
-    
+
     pokemonList.appendChild(pokemonCard); 
 }
 
@@ -34,10 +41,8 @@ backButton.addEventListener("click", () => {
 });
 
 function showPokemonDetail(pokemon) {
-
     pokemonList.style.display = "none";  
     pokemonDetail.style.display = "block";
-    
 
     pokemonInfo.innerHTML = `
         <h2>${pokemon.name.toUpperCase()}</h2>
@@ -49,28 +54,57 @@ function showPokemonDetail(pokemon) {
     `;
 }
 
-async function loadPokedex() {
-    for (let i = 1; i <= 150; i++) {  // Puedes reducir el rango a 10 para probar más rápido
-        const pokemon = await fetchPokemonData(i);
-        displayPokemon(pokemon);
-    }
-}
+async function loadPokedex(page) {
+    pokemonList.innerHTML = "";
+    const start = (page - 1) * itemsPerPage + 1;
+    const end = Math.min(page * itemsPerPage, totalPokemon); 
 
-
-async function searchPokemon(params) {
-    const query = searchInput.value.toLowerCase().trim()
-    if(query){
-        try{
-            const pokemon = await fetchPokemonData(query)
-            pokemonList.style.display = "none"
-            showPokemonDetail(pokemon) 
-        }catch (error) {
-            alert("Pokemón no encontrado, inténtelo nuevamente")
+    for (let i = start; i <= end; i++) {
+        try {
+            const pokemon = await fetchPokemonData(i);
+            displayPokemon(pokemon);
+        } catch (error) {
+            console.error(`Pokemón no encontrado ${i}:`, error);
         }
     }
-
+    updatePaginationButtons(page)
+    return
 }
 
-searchButton.addEventListener("click", searchPokemon)
+async function searchPokemon() {
+    const query = searchInput.value.toLowerCase().trim();
+    if (query) {
+        try {
+            const pokemon = await fetchPokemonData(query);
+            pokemonList.style.display = "none";
+            showPokemonDetail(pokemon);
+        } catch (error) {
+            alert("Pokémon no encontrado, inténtelo nuevamente");
+        }
+    }
+}
 
-loadPokedex();
+searchButton.addEventListener("click", searchPokemon);
+
+function updatePaginationButtons(page) {
+    const totalPages = Math.ceil(totalPokemon / itemsPerPage);
+    prevButton.disabled = page === 1; 
+    nextButton.disabled = page === totalPages; 
+}
+
+nextButton.addEventListener("click", () => {
+    if (currentPage * itemsPerPage < totalPokemon) { 
+        currentPage++;
+        loadPokedex(currentPage);
+    }
+});
+
+prevButton.addEventListener("click", () => {
+    if (currentPage > 1) { 
+        currentPage--;
+        loadPokedex(currentPage);
+    }
+});
+
+// Initial load
+loadPokedex(currentPage);
