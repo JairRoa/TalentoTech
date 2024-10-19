@@ -205,16 +205,22 @@ header {
 .about{
     background-color: #fff;
     display: flex;
+    position: relative;
 }
 
 .foto {
     margin: auto;
     width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.foto img{
+    width: 90%;
 }
 
 .about-content {
     width: 50%;
-    background-color: #acb190;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -226,6 +232,18 @@ header {
     font-weight: bold;
     font-stretch: condensed;
     text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+}
+
+.about-title::before {
+    content: '"';
+    color: var(--titulos);
+    font-size: 3em;
+    position: absolute;
+    top: -50px;
+    left: -30px;
+    z-index: -1;
 }
 
 .tag-line{
@@ -245,4 +263,36 @@ header {
 
 .signature{
     display: flex;
+}
+
+.signature h5{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0px;
+    line-height: 2em;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.s1{
+    width: 50%;
+}
+
+.s1 p{
+    font-family: "Poppins", sans-serif;
+    font-stretch: condensed;
+    line-height: 1.5em;
+    font-size: 1em;
+    margin: 0;
+}
+
+.marco{
+    text-transform: uppercase;
+    font-size: 130px;
+    position: absolute;
+    top: -15%;
+    
+    opacity: .2;
+    text-align: center;
 }
